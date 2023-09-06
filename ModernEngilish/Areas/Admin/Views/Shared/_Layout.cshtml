@@ -1,0 +1,375 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@*@using FoodCorner.Services.Abstracts
+@inject IUserService userService*@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Metrica - Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- App favicon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="shortcut icon" href="~/admin/assets/images/favicon.ico" asp-append-version="true">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Plugin css -->
+    @RenderSection("plugin_styles", required: false)
+
+    <!-- App css -->
+    <link href="~/admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" asp-append-version="true" />
+    <link href="~/admin/assets/plugins/uppy/uppy.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/admin/assets/css/DropZone.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" asp-append-version="true" />
+    <link href="~/admin/assets/css/app.min.css" rel="stylesheet" type="text/css" asp-append-version="true" />
+    <link href="~/admin/assets/css/app.css" rel="stylesheet" type="text/css" asp-append-version="true" />
+
+    <!-- Custom css -->
+    @RenderSection("styles", required: false)
+</head>
+
+<body id="body">
+    <!-- leftbar-tab-menu -->
+    <div class="leftbar-tab-menu">
+        <div class="main-icon-menu">
+            <a href="index.html" class="logo logo-metrica d-block text-center">
+                <span>
+                    <img style="width:100%; height:40px; object-fit:cover;" src="~/Client/assets/images/CatagoriImg/sirinniyat.svg" asp-append-version="true">
+                </span>
+            </a>
+            <div class="main-icon-menu-body">
+                <div class="position-reletive h-100" data-simplebar style="overflow-x: hidden;">
+                    <ul class="nav nav-tabs" role="tablist" id="tab-menu">
+                        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard" data-bs-trigger="hover">
+                            <a href="#MetricaDashboard" id="dashboard-tab" class="nav-link">
+                                <i class="ti ti-smart-home menu-icon"></i>
+                            </a><!--end nav-link-->
+                        </li>
+                        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Apps" data-bs-trigger="hover">
+                            <a href="#MetricaApps" id="apps-tab" class="nav-link">
+                                <i class="ti ti-apps menu-icon"></i>
+                            </a>
+                        </li><!--end nav-item--><!--end nav-item-->
+                    </ul><!--end nav-->
+                </div><!--end /div-->
+            </div><!--end main-icon-menu-body-->
+        </div>
+        <!--end main-icon-menu-->
+
+        <div class="main-menu-inner">
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <a href="index.html" class="logo">
+                </a><!--end logo-->
+            </div><!--end topbar-left-->
+            <!--end logo-->
+            <div class="menu-body navbar-vertical tab-content" data-simplebar>
+                <div id="MetricaDashboard" class="main-icon-menu-pane tab-pane" role="tabpanel"
+                     aria-labelledby="dasboard-tab">
+                    <div class="title-box">
+                        <h6 class="menu-title">Dashboard</h6>
+                    </div>
+
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a asp-route="admin-home-index" class="nav-link">Home</a>
+                        </li>
+                    </ul><!--end nav-->
+                </div>
+
+                <!-- end Dashboards -->
+
+                <div id="MetricaApps" class="main-icon-menu-pane tab-pane" role="tabpanel"
+                     aria-labelledby="apps-tab">
+                    <div class="title-box">
+                        <h6 class="menu-title">App</h6>
+                    </div>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sidebarAnalytics" data-bs-toggle="collapse" role="button"
+                               aria-expanded="false" aria-controls="sidebarAnalytics">
+                                Product
+                            </a>
+                            <div class="collapse " id="sidebarAnalytics">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a asp-route="admin-product-list" class="nav-link">Products</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-route="admin-cate-list" class="nav-link">Product Category</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-route="admin-tag-list" class="nav-link">Product Tags</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-route="admin-size-list" class="nav-link">Product Sizes</a>
+                                    </li><!--end nav-item-->
+                                </ul><!--end nav-->
+                            </div><!--end sidebarAnalytics-->
+                        </li><!--end nav-item-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sidebarPayments" data-bs-toggle="collapse" role="button"
+                               aria-expanded="false" aria-controls="sidebarPayments">
+                                Navbar
+                            </a>
+                            <div class="collapse " id="sidebarPayments">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a asp-route="admin-nav-list" class="nav-link">Navbars</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-route="admin-subnav-list" class="nav-link ">SubNavbars</a>
+                                    </li>
+                                </ul><!--end nav-->
+                            </div><!--end sidebarAnalytics-->
+                        </li><!--end nav-item-->
+                        <li class="nav-item">
+                            <a class="nav-link" asp-route="admin-slider-list">
+                                Slider
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-route="admin-story-list">
+                                Our Story
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-route="admin-order-list">
+                                Order`s
+                            </a>
+                        </li><!--end nav-item-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sidebarAbout" data-bs-toggle="collapse" role="button"
+                               aria-expanded="false" aria-controls="sidebarAbout">
+                                About
+                            </a>
+                            <div class="collapse " id="sidebarAbout">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a asp-route="admin-team-list" class="nav-link">Team Members</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-route="admin-team-aboutVidioList" class="nav-link">Vidios</a>
+                                    </li>
+                                </ul><!--end nav-->
+                            </div><!--end sidebarAnalytics-->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sidebarBlog" data-bs-toggle="collapse" role="button"
+                               aria-expanded="false" aria-controls="sidebarBlog">
+                                Blog
+                            </a>
+                            <div class="collapse " id="sidebarBlog">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a asp-route="admin-blog-list" class="nav-link">Blog`s</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-route="admin-blogTag-list" class="nav-link">Blog Tag`s</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-route="admin-blogCate-list" class="nav-link">Blog Categories</a>
+                                    </li>
+                                </ul><!--end nav-->
+                            </div><!--end sidebarAnalytics-->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-route="admin-contactus-list">
+                                Address
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-route="admin-user-list">
+                                User's
+                            </a>
+                        </li><!--end nav-item-->
+                    </ul>
+
+                    @*        <ul class="nav flex-column">
+                    <li class="nav-item">
+                    <a asp-route="admin-nav-list" class="nav-link">NAVBARS</a>
+                    </li>
+                    <li class="nav-item">
+                    <a asp-route="admin-slider-list" class="nav-link">SLIDERS</a>
+                    </li>
+                    <li class="nav-item">
+                    <a asp-route="admin-payment-list" class="nav-link">PAYMNET-BENEFITS</a>
+                    </li>
+                    <li class="nav-item">
+                    <a asp-route="admin-product-list" class="nav-link">PRODUCTS</a>
+                    </li>
+                    <li class="nav-item">
+                    <a asp-route="admin-clientsay-list" class="nav-link">CLIENT-SAY</a>
+                    </li>
+                    <li class="nav-item">
+                    <a asp-route="admin-order-list" class="nav-link">ORDERS</a>
+                    </li>
+                    <li class="nav-item">
+                    <a asp-route="admin-reward-list" class="nav-link">Rewards</a>
+                    </li>
+                    <li class="nav-item">
+                    <a asp-route="admin-contact-list" class="nav-link">CONTACT US</a>
+                    </li>
+                    <li class="nav-item">
+                    <a asp-route="admin-blog-list" class="nav-link">BLOGS</a>
+                    </li><!--end nav-item-->
+                    </ul><!--end nav-->*@
+                </div>
+            </div>
+            <!--end menu-body-->
+        </div><!-- end main-menu-inner-->
+    </div>
+    <!-- end leftbar-tab-menu-->
+    <!-- Top Bar Start -->
+    <!-- Top Bar Start -->
+    <div class="topbar">
+        <!-- Navbar -->
+        <nav class="navbar-custom" id="navbar-custom">
+            <ul class="list-unstyled topbar-nav float-end mb-0">
+
+
+           @*     @await Component.InvokeAsync(nameof(ShowAlert))*@
+
+
+
+                <li class="dropdown">
+                    <a class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown" href="#" role="button"
+                       aria-haspopup="false" aria-expanded="false">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <small class="d-none d-md-block font-11">Admin</small>
+                                @*<span class="d-none d-md-block fw-semibold font-12">
+                                    @userService.CurrentUser.FirstName @userService.CurrentUser.LastName <i class="mdi mdi-chevron-down"></i>
+                                </span>*@
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#"><i class="ti ti-user font-16 me-1 align-text-bottom"></i> Profile</a>
+                        <a class="dropdown-item" href="#"><i class="ti ti-settings font-16 me-1 align-text-bottom"></i> Settings</a>
+                        <div class="dropdown-divider mb-0"></div>
+                        <a class="dropdown-item" asp-route="admin-auth-logout"><i class="ti ti-power font-16 me-1 align-text-bottom"></i> Logout</a>
+                    </div>
+                </li><!--end topbar-profile-->
+
+
+                <li class="notification-list">
+                    <a class="nav-link arrow-none nav-icon offcanvas-btn" href="#" data-bs-toggle="offcanvas" data-bs-target="#Appearance" role="button" aria-controls="Rightbar">
+                        <i class="ti ti-settings ti-spin"></i>
+                    </a>
+                </li>
+            </ul><!--end topbar-nav-->
+
+            <ul class="list-unstyled topbar-nav mb-0">
+                <li>
+                    <button class="nav-link button-menu-mobile nav-icon" id="togglemenu">
+                        <i class="ti ti-menu-2"></i>
+                    </button>
+                </li>
+                <li class="hide-phone app-search">
+                    @using (Html.BeginForm("List", "Product", FormMethod.Get))
+                    {
+                        <div class="d-none">
+                            <b>Search By :</b>
+                            @Html.RadioButton("searchBy","Name",true)<text>Name</text>
+                            <br />
+                        </div>
+                        @Html.TextBox("search",null, new { @placeholder = "Search..." ,@class="form-control top-search mb-0"})
+                    }
+                </li>
+            </ul>
+        </nav>
+        <!-- end navbar-->
+    </div>
+    <!-- Top Bar End -->
+    <!-- Top Bar End -->
+
+    <div class="page-wrapper">
+
+        <!-- Page Content-->
+        <div class="page-content-tab">
+            <div class="container-fluid">
+
+                @RenderBody()
+
+            </div><!-- container -->
+            <!--Start Rightbar-->
+            <!--Start Rightbar/offcanvas-->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="Appearance" aria-labelledby="AppearanceLabel">
+                <div class="offcanvas-header border-bottom">
+                    <h5 class="m-0 font-14" id="AppearanceLabel">Appearance</h5>
+                    <button type="button" class="btn-close text-reset p-0 m-0 align-self-center" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <h6>Account Settings</h6>
+                    <div class="p-2 text-start mt-3">
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="settings-switch1">
+                            <label class="form-check-label" for="settings-switch1">Auto updates</label>
+                        </div><!--end form-switch-->
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="settings-switch2" checked>
+                            <label class="form-check-label" for="settings-switch2">Location Permission</label>
+                        </div><!--end form-switch-->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="settings-switch3">
+                            <label class="form-check-label" for="settings-switch3">Show offline Contacts</label>
+                        </div><!--end form-switch-->
+                    </div><!--end /div-->
+                    <h6>General Settings</h6>
+                    <div class="p-2 text-start mt-3">
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="settings-switch4">
+                            <label class="form-check-label" for="settings-switch4">Show me Online</label>
+                        </div><!--end form-switch-->
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="settings-switch5" checked>
+                            <label class="form-check-label" for="settings-switch5">Status visible to all</label>
+                        </div><!--end form-switch-->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="settings-switch6">
+                            <label class="form-check-label" for="settings-switch6">Notifications Popup</label>
+                        </div><!--end form-switch-->
+                    </div><!--end /div-->
+                </div><!--end offcanvas-body-->
+            </div>
+            <!--end Rightbar/offcanvas-->
+            <!--end Rightbar-->
+            <!--Start Footer-->
+            <!-- Footer Start -->
+            <footer class="footer text-center text-sm-start">
+                &copy; <script>
+                           document.write(new Date().getFullYear())
+                </script> Metrica <span class="text-muted d-none d-sm-inline-block float-end">
+                    Crafted with <i class="mdi mdi-heart text-danger"></i> by Mannatthemes
+                </span>
+            </footer>
+            <!-- end Footer -->
+            <!--end footer-->
+        </div>
+        <!-- end page content -->
+    </div>
+    <!-- end page-wrapper -->
+    <!-- Javascript  -->
+    <!-- Plugin Js -->
+   
+
+    <!-- App js -->
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="~/admin/assets/js/DropZone.js" asp-append-version="true"></script>
+    <script src="~/admin/assets/js/app.js" asp-append-version="true"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+
+    <script src="~/admin/assets/js/hubs/alert-handler.js" asp-append-version="true"></script>
+    <!-- Custom Js -->
+</body>
+<!--end body-->
+</html>
