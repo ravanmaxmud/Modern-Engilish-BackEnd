@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ModernEngilish.Services.Abstracts;
+using ModernEngilish.Services.Concretes;
 
 namespace ModernEngilish.Infrastructure.Configurations
 {
@@ -6,7 +8,7 @@ namespace ModernEngilish.Infrastructure.Configurations
     {
         public static void RegisterCustomServices(this IServiceCollection services, IConfiguration configuration)
         {
-            //services.AddScoped<IFileService, FileService>();
+            services.AddScoped<IFileService, FileService>();
         }
     }
 }

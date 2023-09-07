@@ -1,0 +1,39 @@
+﻿@using ModernEngilish.Areas.Admin.ViewModels.EngProgram;
+@model UpdateViewModel
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Navbars</h4>
+            </div>
+            <div class="card-body">
+                <div class="general-label">
+                    <form method="post" asp-route="admin-enProgram-update" enctype="multipart/form-data">
+                        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                        <div class="form-group  d-flex justify-content-between align-items-center">
+                            <div class="col-lg-6">
+                                <label asp-for="Name"></label>
+                                <input asp-for="Name" class="form-control">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="col-lg-6">
+                                <label asp-for="Description"></label>
+                                <input asp-for="Description" class="form-control">
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="PosterImage"></label>
+                            <input asp-for="PosterImage" class="form-control">
+                            <span asp-validation-for="PosterImage" class="text-danger"></span>
+                            <img style="width:40%; object-fit:cover;"  src="@Model.PosterImgUrl"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div><!--end card-body-->
+        </div><!--end card-->
+    </div>
+</div>

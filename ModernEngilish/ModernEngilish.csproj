@@ -28,7 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\ViewModels\" />
     <Folder Include="Areas\Admin\ViewCompanents\" />
     <Folder Include="Areas\Admin\Validations\" />
     <Folder Include="Areas\Client\Controllers\" />
@@ -37,11 +36,8 @@
     <Folder Include="Areas\Client\ViewCompanents\" />
     <Folder Include="Areas\Client\ViewModels\" />
     <Folder Include="Areas\Client\Views\" />
-    <Folder Include="Contracts\" />
     <Folder Include="Database\Configuration\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="Services\Abstracts\" />
-    <Folder Include="Services\Concretes\" />
     <Folder Include="wwwroot\Client\" />
   </ItemGroup>
 
