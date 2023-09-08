@@ -1,4 +1,4 @@
-﻿@using ModernEngilish.Areas.Admin.ViewModels.EngProgram;
+﻿@using ModernEngilish.Areas.Admin.ViewModels.Aged;
 @model List<ListViewModel>
 
 <div class="container-fluid">
@@ -8,12 +8,12 @@
             <div class="page-title-box">
                 <div class="float-start">
                 </div>
-                <h4 class="page-title">English Program</h4>
+                <h4 class="page-title">Aged</h4>
             </div>
             <div class="text-danger" asp-validation-summary="ModelOnly"></div>
             <!--end page-title-box-->
         </div>
-        <a asp-route="admin-enProgram-add" class="mt-2 mb-2 btn btn-success">Add New English Program</a>
+        <a asp-route="admin-aged-add" class="mt-2 mb-2 btn btn-success">Add New Age</a>
         <!--end col-->
     </div>
     <!-- end page title end breadcrumb -->
@@ -37,8 +37,8 @@
                                     </div>
                                 </div><!--end meta-box-->
                                 <div class="d-flex justify-content-between aligin-items-center">
-                                    <a class="btn btn-success" asp-route="admin-enProgram-update" asp-route-Id="@item.Id"><i class="las la-pen text-dark font-16"></i></a>
-                                    <form method="POST" asp-route="admin-enProgram-delete" asp-route-id="@item.Id" id="book-form-@item.Id"></form>
+                                    <a class="btn btn-success" asp-route="admin-aged-update" asp-route-Id="@item.Id"><i class="las la-pen text-dark font-16"></i></a>
+                                    <form method="POST" asp-route="admin-aged-delete" asp-route-id="@item.Id" id="book-form-@item.Id"></form>
                                     <button class="btn btn-danger" type="submit" form="book-form-@item.Id">
                                         <i class="las la-trash-alt text-dark font-16"></i>
                                     </button>

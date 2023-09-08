@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ModernEngilish.Areas.Admin.ViewModels.EngProgram;
+using ModernEngilish.Areas.Admin.ViewModels.Aged;
 using ModernEngilish.Contracts.File;
 using ModernEngilish.Database;
 using ModernEngilish.Database.Models;
@@ -9,29 +9,28 @@ using ModernEngilish.Services.Abstracts;
 namespace ModernEngilish.Areas.Admin.Controllers
 {
     [Area("admin")]
-    [Route("admin/engilishProgram")]
-    public class EngilishProgramController : Controller
+    [Route("admin/aged")]
+    public class AgedController : Controller
     {
         private readonly DataContext _dataContext;
         private readonly IFileService _fileService;
-        private readonly ILogger<EngilishProgramController> _logger;
+        private readonly ILogger<AgedController> _logger;
 
-        public EngilishProgramController(DataContext dataContext, IFileService fileService, ILogger<EngilishProgramController> logger)
+        public AgedController(DataContext dataContext, IFileService fileService, ILogger<AgedController> logger)
         {
             _dataContext = dataContext;
             _fileService = fileService;
             _logger = logger;
         }
-
-        [HttpGet("list", Name = "admin-enPrgoram-list")]
+        [HttpGet("list", Name = "admin-aged-list")]
         public async Task<IActionResult> List()
         {
             try
             {
-                var model = await _dataContext.EngilishPrograms
+                var model = await _dataContext.Ageds
                   .Select(ep =>
                   new ListViewModel
-                  (ep.Id, ep.ProgramName, ep.ProgramContent, _fileService.GetFileUrl(ep.FileNameInSystem, UploadDirectory.EngProgram))).
+                  (ep.Id, ep.ProgramName, ep.ProgramContent, _fileService.GetFileUrl(ep.FileNameInSystem, UploadDirectory.Aged))).
                    ToListAsync();
                 return View(model);
             }
@@ -42,32 +41,30 @@ namespace ModernEngilish.Areas.Admin.Controllers
                 throw ex;
             }
         }
-
-        [HttpGet("add", Name = "admin-enProgram-add")]
+        [HttpGet("add", Name = "admin-aged-add")]
         public async Task<IActionResult> Add()
         {
             return View();
         }
-
-        [HttpPost("add", Name = "admin-enProgram-add")]
+        [HttpPost("add", Name = "admin-aged-add")]
         public async Task<IActionResult> Add(AddViewModel model)
         {
             try
             {
                 if (!ModelState.IsValid) return View(model);
 
-                var imageNameInSystem = await _fileService.UploadAsync(model.PosterImage, UploadDirectory.EngProgram);
+                var imageNameInSystem = await _fileService.UploadAsync(model.PosterImage, UploadDirectory.Aged);
 
-                var engProgram = new EngilishProgram
+                var aged = new Aged
                 {
                     ProgramName = model.Name,
                     ProgramContent = model.Description,
                     FileName = model.PosterImage.FileName,
                     FileNameInSystem = imageNameInSystem
                 };
-                await _dataContext.EngilishPrograms.AddAsync(engProgram);
+                await _dataContext.Ageds.AddAsync(aged);
                 await _dataContext.SaveChangesAsync();
-                return RedirectToRoute("admin-enPrgoram-list");
+                return RedirectToRoute("admin-aged-list");
             }
             catch (Exception ex)
             {
@@ -76,20 +73,19 @@ namespace ModernEngilish.Areas.Admin.Controllers
                 return View(model);
             }
         }
-
-        [HttpGet("update/{id}", Name = "admin-enProgram-update")]
+        [HttpGet("update/{id}", Name = "admin-aged-update")]
         public async Task<IActionResult> Update([FromRoute] int? id)
         {
             try
             {
-                var enPrgoram = await _dataContext.EngilishPrograms.FirstOrDefaultAsync(ep => ep.Id == id);
-                if (enPrgoram is null) return NotFound("Eng Progrdam Not Found In Db");
+                var aged = await _dataContext.Ageds.FirstOrDefaultAsync(ep => ep.Id == id);
+                if (aged is null) return NotFound("Age Not Found In Db");
                 var model = new UpdateViewModel
                 {
-                    Id = enPrgoram.Id,
-                    Name = enPrgoram.ProgramName,
-                    Description = enPrgoram.ProgramContent,
-                    PosterImgUrl = _fileService.GetFileUrl(enPrgoram.FileNameInSystem, UploadDirectory.EngProgram)
+                    Id = aged.Id,
+                    Name = aged.ProgramName,
+                    Description = aged.ProgramContent,
+                    PosterImgUrl = _fileService.GetFileUrl(aged.FileNameInSystem, UploadDirectory.Aged)
                 };
                 return View(model);
             }
@@ -97,32 +93,30 @@ namespace ModernEngilish.Areas.Admin.Controllers
             {
                 ModelState.AddModelError(string.Empty, "Something went wrong");
                 _logger.LogWarning($"({ex.Data}) someThings Went Wrong In Updating Proses ");
-                return RedirectToRoute("admin-enPrgoram-list");
+                return RedirectToRoute("admin-aged-list");
             }
         }
-
-
-        [HttpPost("update/{id}", Name = "admin-enProgram-update")]
+        [HttpPost("update/{id}", Name = "admin-aged-update")]
         public async Task<IActionResult> Update(UpdateViewModel model)
         {
             try
             {
-                var engilish = await _dataContext.EngilishPrograms.FirstOrDefaultAsync(ep => ep.Id == model.Id);
-                if (engilish is null) return NotFound("Language Not Found In Db");
+                var aged = await _dataContext.Ageds.FirstOrDefaultAsync(ep => ep.Id == model.Id);
+                if (aged is null) return NotFound("Aged Not Found In Db");
 
                 if (model.PosterImage is not null)
                 {
-                    await _fileService.DeleteAsync(engilish.FileNameInSystem, UploadDirectory.EngProgram);
-                    var imageNameInSystem = await _fileService.UploadAsync(model.PosterImage, UploadDirectory.EngProgram);
-                    engilish.FileName = model.PosterImage.FileName;
-                    engilish.FileNameInSystem = imageNameInSystem;
+                    await _fileService.DeleteAsync(aged.FileNameInSystem, UploadDirectory.Aged);
+                    var imageNameInSystem = await _fileService.UploadAsync(model.PosterImage, UploadDirectory.Aged);
+                    aged.FileName = model.PosterImage.FileName;
+                    aged.FileNameInSystem = imageNameInSystem;
                 }
-                engilish.ProgramName = model.Name!;
-                engilish.ProgramContent = model.Description!;
-                engilish.UpdateAt = DateTime.Now;
+                aged.ProgramName = model.Name!;
+                aged.ProgramContent = model.Description!;
+                aged.UpdateAt = DateTime.Now;
 
                 await _dataContext.SaveChangesAsync(true);
-                return RedirectToRoute("admin-enProgram-list");
+                return RedirectToRoute("admin-aged-list");
             }
             catch (Exception ex)
             {
@@ -132,25 +126,24 @@ namespace ModernEngilish.Areas.Admin.Controllers
             }
         }
 
-        [HttpPost("delete/{id}", Name = "admin-enProgram-delete")]
+        [HttpPost("delete/{id}", Name = "admin-aged-delete")]
         public async Task<IActionResult> Delete([FromRoute] int? id)
         {
             try
             {
-                var enPrgoram = await _dataContext.EngilishPrograms.FirstOrDefaultAsync(ep => ep.Id == id);
-                if (enPrgoram is null) return NotFound();
-                await _fileService.DeleteAsync(enPrgoram.FileNameInSystem, UploadDirectory.EngProgram);
-                _dataContext.EngilishPrograms.Remove(enPrgoram);
+                var aged = await _dataContext.Ageds.FirstOrDefaultAsync(ep => ep.Id == id);
+                if (aged is null) return NotFound();
+                await _fileService.DeleteAsync(aged.FileNameInSystem, UploadDirectory.Aged);
+                _dataContext.Ageds.Remove(aged);
                 await _dataContext.SaveChangesAsync(true);
-                return RedirectToRoute("admin-enPrgoram-list");
-            } 
+                return RedirectToRoute("admin-aged-list");
+            }
             catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, "Something went wrong");
                 _logger.LogWarning($"({ex.Data}) someThings Went Wrong In Delete Proses ");
-                return RedirectToRoute("admin-enPrgoram-list");
+                return RedirectToRoute("admin-aged-list");
             }
         }
-
     }
 }
