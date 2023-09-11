@@ -22,6 +22,8 @@ namespace ModernEngilish.Database
         public DbSet<Languages> Languages { get; set; }
         public DbSet<Aged> Ageds { get; set; }
         public DbSet<Partie> Parties { get; set; }
+        public DbSet<Gallery> Galleries { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

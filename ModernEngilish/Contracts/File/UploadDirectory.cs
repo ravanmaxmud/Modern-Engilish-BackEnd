@@ -6,5 +6,6 @@
         Language = 2,
         Aged = 3,
         Parties = 4,
+        Gallery = 5,
     }
 }

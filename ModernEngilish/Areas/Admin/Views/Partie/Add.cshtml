@@ -1,4 +1,5 @@
 ﻿@using ModernEngilish.Areas.Admin.ViewModels.Partie;
+@using ModernEngilish.Contracts.Gallery;
 @model AddViewModel
 
 <div class="row">
@@ -12,6 +13,14 @@
                     <form method="POST" asp-route="admin-partie-add" enctype="multipart/form-data">
                         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                         <div class="form-group">
+                            <label asp-for="GalleryName"></label>
+                            <select asp-for="GalleryName" asp-items="Html.GetEnumSelectList<GalleryName>()" class="form-control">
+                                <option value="">Renk Seçin</option>
+                            </select>
+                            <span asp-validation-for="GalleryName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">    
                             <label asp-for="PosterImage"></label>
                             <input asp-for="PosterImage" class="form-control">
                             <span asp-validation-for="PosterImage" class="text-danger"></span>
