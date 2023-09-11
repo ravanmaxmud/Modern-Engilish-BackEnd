@@ -4,7 +4,6 @@ namespace ModernEngilish.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/about")]
-
     public class AboutController : Controller
     {
         [HttpGet("index")]

@@ -57,6 +57,8 @@ namespace ModernEngilish.Services.Concretes
                     return $"{initialSegment}/Language/{fileName}";
                 case UploadDirectory.Aged:
                     return $"{initialSegment}/Aged/{fileName}";
+                case UploadDirectory.Parties:
+                    return $"{initialSegment}/Parties/{fileName}";
                 default:
                     throw new Exception("Something went wrong");
             }
@@ -79,6 +81,8 @@ namespace ModernEngilish.Services.Concretes
                     return Path.Combine(startPath, "Language");
                 case UploadDirectory.Aged:
                     return Path.Combine(startPath, "Aged");
+                case UploadDirectory.Parties:
+                    return Path.Combine(startPath, "Parties");
                 default:
                     throw new Exception("Something went wrong");
             }
