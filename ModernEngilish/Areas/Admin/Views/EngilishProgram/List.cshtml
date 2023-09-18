@@ -1,5 +1,8 @@
 ﻿@using ModernEngilish.Areas.Admin.ViewModels.EngProgram;
 @model List<ListViewModel>
+@{
+    var errorMessage = TempData["ErrorMessage"] as string;
+}
 
 <div class="container-fluid">
     <!-- Page-Title -->
@@ -11,6 +14,10 @@
                 <h4 class="page-title">English Program</h4>
             </div>
             <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <p class="text-danger">@errorMessage</p>
+            }
             <!--end page-title-box-->
         </div>
         <a asp-route="admin-enProgram-add" class="mt-2 mb-2 btn btn-success">Add New English Program</a>

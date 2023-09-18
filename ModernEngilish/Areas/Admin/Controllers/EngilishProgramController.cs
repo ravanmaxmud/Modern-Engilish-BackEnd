@@ -95,6 +95,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
+                TempData["ErrorMessage"] = "Something went wrong";
                 ModelState.AddModelError(string.Empty, "Something went wrong");
                 _logger.LogWarning($"({ex.Data}) someThings Went Wrong In Updating Proses ");
                 return RedirectToRoute("admin-enPrgoram-list");
