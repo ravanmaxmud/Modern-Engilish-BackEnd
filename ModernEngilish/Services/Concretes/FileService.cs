@@ -61,6 +61,8 @@ namespace ModernEngilish.Services.Concretes
                     return $"{initialSegment}/Gallery/{fileName}";
                 case UploadDirectory.Career:
                     return $"{initialSegment}/Career/{fileName}";
+                case UploadDirectory.Graduate:
+                    return $"{initialSegment}/Graduate/{fileName}";
                 default:
                     throw new Exception("Something went wrong");
             }
@@ -87,6 +89,8 @@ namespace ModernEngilish.Services.Concretes
                     return Path.Combine(startPath, "Gallery");
                 case UploadDirectory.Career:
                     return Path.Combine(startPath, "Career");
+                case UploadDirectory.Graduate:
+                    return Path.Combine(startPath, "Graduate");
                 default:
                     throw new Exception("Something went wrong");
             }

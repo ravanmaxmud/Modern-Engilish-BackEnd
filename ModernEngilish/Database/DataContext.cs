@@ -24,6 +24,7 @@ namespace ModernEngilish.Database
         public DbSet<Partie> Parties { get; set; }
         public DbSet<Gallery> Galleries { get; set; }
         public DbSet<Career> Careers { get; set; }
+        public DbSet<Graduate> Graduates { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -8,5 +8,6 @@
         Parties = 4,
         Gallery = 5,
         Career = 6,
+        Graduate = 7,
     }
 }

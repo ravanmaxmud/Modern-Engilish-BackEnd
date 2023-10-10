@@ -1,0 +1,9 @@
+﻿namespace ModernEngilish.Areas.Client.ViewModels.Home
+{
+    public class IndexViewModel
+    {
+        public List<EnglishProgramListViewModel> EnglishPrograms { get; set; }
+        public List<AgedListItemViewModel> Ageds { get; set; }
+        public List<LanguageListItemViewModel> Languages { get; set; }
+    }
+}

@@ -30,11 +30,10 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\ViewCompanents\" />
     <Folder Include="Areas\Admin\Validations\" />
-    <Folder Include="Areas\Client\Controllers\" />
     <Folder Include="Areas\Client\ActionFilter\" />
     <Folder Include="Areas\Client\Validations\" />
     <Folder Include="Areas\Client\ViewCompanents\" />
-    <Folder Include="Areas\Client\ViewModels\" />
+    <Folder Include="Areas\Client\ViewModels\EngilishPrograms\" />
     <Folder Include="Areas\Client\Views\" />
     <Folder Include="Database\Configuration\" />
     <Folder Include="Exceptions\" />
