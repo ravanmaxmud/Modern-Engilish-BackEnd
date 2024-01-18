@@ -1,0 +1,359 @@
+@using ModernEngilish.Areas.Client.ViewModels.Home
+@model IndexViewModel
+
+<section id="banner">
+    <div class="overlay">
+        <div class="text">
+            <p id="education-promo">Get Best Quality<br> Education More Easier</p>
+            <p id="education-promo-2">We provide you with unrestricted access to the greatest courses
+                from the<br> top specialists, allowing you to learn countless of
+                practical lessons in a range<br> of topics.
+            </p>
+            <div id="search-container">
+                <input class="search-input" type="search" placeholder="Search courses">
+                <img src="~/Client/src/assets/images/Vector 3.png" alt="">
+                <div class="custom-dropdown">
+                    <button class="btn custom-btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                <div id="circle">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <p id="education-promo-3">Popular : IELTS, SAT, English for Kids</p>
+        </div>
+        <div class="overlay-image">
+            <img class="girl-with-notebooks" src="~/client/src/assets/images/girl-with-notebooks.png">
+        </div>
+    </div>
+
+
+</section>
+<section>
+    <div id="cards">
+        <div class="title-container">
+            <h1>Popular Courses</h1>
+            <div class="content"> </div>
+            <div class="category-container">
+                <div class="category-1">English Programs</div>
+                <div class="category-2">Kids Programs</div>
+                <div class="category-2">Languages</div>
+                <div class="category-2">Online Courses</div>
+            </div>
+        </div>
+        <!-- burada justify-content-center olacaq -->
+        <div style="display: flex; justify-content: space-between; ">
+            @foreach (var enProgram in Model.EnglishPrograms)
+            {
+                <div id="card">
+                    <div><img class="image-2" src="~/@enProgram.ImageUrl"></div>
+                    <div class="information-card">
+                        <p class="course-name">@enProgram.Name</p>
+                        <p class="course-information">
+                            @enProgram.Description
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div id="mini-card-slider" class="owl-carousel owl-theme">
+            @foreach (var enProgram in Model.EnglishPrograms)
+            {
+                <div id="card-2">
+                    <div><img class="image-2" src="~/@enProgram.ImageUrl"></div>
+                    <div class="information-card">
+                        <p class="course-name">@enProgram.Name</p>
+                        <p class="course-information">
+                            @enProgram.Description
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    </div>
+    <a asp-route="#" class="more-courses">More Courses</a>
+</section>
+
+<section id="graduates-section">
+    <div id="graduates-1">
+        <div class="graduates1-container">
+            <img src="~/client/src/assets/images/graduates1.jpg">
+        </div>
+    </div>
+    <div id="graduates-2">
+        <div class="graduates2-container">
+            <img src="~/client/src/assets/images/graduates2.jpg">
+        </div>
+    </div>
+    <div id="graduates-3">
+        <div class="graduates3-container">
+            <img src="~/client/src/assets/images/graduates3.jpg">
+        </div>
+    </div>
+    <div id="graduates-4">
+        <div class="graduates4-container">
+            <img src="~/client/src/assets/images/graduates4.jpg">
+        </div>
+    </div>
+
+
+    <div class="ellipse-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="196" height="196" viewBox="0 0 196 196" fill="none">
+            <path
+                d="M196 98C196 152.124 152.124 196 98 196C43.8761 196 0 152.124 0 98C0 43.8761 43.8761 0 98 0C152.124 0 196 43.8761 196 98ZM2.7917 98C2.7917 150.582 45.4179 193.208 98 193.208C150.582 193.208 193.208 150.582 193.208 98C193.208 45.4179 150.582 2.7917 98 2.7917C45.4179 2.7917 2.7917 45.4179 2.7917 98Z"
+                fill="white" fill-opacity="0.28" />
+        </svg>
+    </div>
+    <div class="ellipse-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="98" height="98" viewBox="0 0 98 98" fill="none">
+            <path
+                d="M98 49C98 76.062 76.062 98 49 98C21.938 98 0 76.062 0 49C0 21.938 21.938 0 49 0C76.062 0 98 21.938 98 49ZM1.39585 49C1.39585 75.291 22.709 96.6041 49 96.6041C75.291 96.6041 96.6041 75.291 96.6041 49C96.6041 22.709 75.291 1.39585 49 1.39585C22.709 1.39585 1.39585 22.709 1.39585 49Z"
+                fill="white" fill-opacity="0.26" />
+        </svg>
+    </div>
+    <div class="ellipse-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="111" height="111" viewBox="0 0 111 111" fill="none">
+            <path
+                d="M111 55.5C111 86.1518 86.1518 111 55.5 111C24.8482 111 0 86.1518 0 55.5C0 24.8482 24.8482 0 55.5 0C86.1518 0 111 24.8482 111 55.5ZM1.58102 55.5C1.58102 85.2786 25.7214 109.419 55.5 109.419C85.2786 109.419 109.419 85.2786 109.419 55.5C109.419 25.7214 85.2786 1.58102 55.5 1.58102C25.7214 1.58102 1.58102 25.7214 1.58102 55.5Z"
+                fill="white" fill-opacity="0.34" />
+        </svg>
+    </div>
+    <div class="ellipse-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="179" height="170" viewBox="0 0 179 170" fill="none">
+            <path
+                d="M179 98C179 152.124 135.124 196 81 196C26.8761 196 -17 152.124 -17 98C-17 43.8761 26.8761 0 81 0C135.124 0 179 43.8761 179 98ZM-14.2083 98C-14.2083 150.582 28.4179 193.208 81 193.208C133.582 193.208 176.208 150.582 176.208 98C176.208 45.4179 133.582 2.7917 81 2.7917C28.4179 2.7917 -14.2083 45.4179 -14.2083 98Z"
+                fill="white" fill-opacity="0.28" />
+        </svg>
+    </div>
+    <div class="ellipse-5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="248" height="248" viewBox="0 0 248 248" fill="none">
+            <path
+                d="M248 124C248 192.483 192.483 248 124 248C55.5167 248 0 192.483 0 124C0 55.5167 55.5167 0 124 0C192.483 0 248 55.5167 248 124ZM3.53236 124C3.53236 190.532 57.4676 244.468 124 244.468C190.532 244.468 244.468 190.532 244.468 124C244.468 57.4676 190.532 3.53236 124 3.53236C57.4676 3.53236 3.53236 57.4676 3.53236 124Z"
+                fill="white" fill-opacity="0.22" />
+        </svg>
+    </div>
+    <div class="ellipse-6">
+        <svg xmlns="http://www.w3.org/2000/svg" width="248" height="248" viewBox="0 0 248 248" fill="none">
+            <path
+                d="M248 124C248 192.483 192.483 248 124 248C55.5167 248 0 192.483 0 124C0 55.5167 55.5167 0 124 0C192.483 0 248 55.5167 248 124ZM3.53236 124C3.53236 190.532 57.4676 244.468 124 244.468C190.532 244.468 244.468 190.532 244.468 124C244.468 57.4676 190.532 3.53236 124 3.53236C57.4676 3.53236 3.53236 57.4676 3.53236 124Z"
+                fill="white" fill-opacity="0.22" />
+        </svg>
+    </div>
+    <div class="ellipse-7">
+        <svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69" fill="none">
+            <path
+                d="M69 34.5C69 53.5538 53.5538 69 34.5 69C15.4462 69 0 53.5538 0 34.5C0 15.4462 15.4462 0 34.5 0C53.5538 0 69 15.4462 69 34.5ZM0.982796 34.5C0.982796 53.011 15.989 68.0172 34.5 68.0172C53.011 68.0172 68.0172 53.011 68.0172 34.5C68.0172 15.989 53.011 0.982796 34.5 0.982796C15.989 0.982796 0.982796 15.989 0.982796 34.5Z"
+                fill="white" fill-opacity="0.34" />
+        </svg>
+    </div>
+    <div class="ellipse-8">
+        <svg xmlns="http://www.w3.org/2000/svg" width="111" height="111" viewBox="0 0 111 111" fill="none">
+            <path
+                d="M111 55.5C111 86.1518 86.1518 111 55.5 111C24.8482 111 0 86.1518 0 55.5C0 24.8482 24.8482 0 55.5 0C86.1518 0 111 24.8482 111 55.5ZM1.58102 55.5C1.58102 85.2786 25.7214 109.419 55.5 109.419C85.2786 109.419 109.419 85.2786 109.419 55.5C109.419 25.7214 85.2786 1.58102 55.5 1.58102C25.7214 1.58102 1.58102 25.7214 1.58102 55.5Z"
+                fill="white" fill-opacity="0.34" />
+        </svg>
+
+    </div>
+    <div class="ellipse-9">
+        <svg xmlns="http://www.w3.org/2000/svg" width="130" height="130" viewBox="0 0 130 130" fill="none">
+            <path
+                d="M130 65C130 100.899 100.899 130 65 130C29.1015 130 0 100.899 0 65C0 29.1015 29.1015 0 65 0C100.899 0 130 29.1015 130 65ZM1.85164 65C1.85164 99.8759 30.1241 128.148 65 128.148C99.8759 128.148 128.148 99.8759 128.148 65C128.148 30.1241 99.8759 1.85164 65 1.85164C30.1241 1.85164 1.85164 30.1241 1.85164 65Z"
+                fill="white" fill-opacity="0.34" />
+        </svg>
+    </div>
+    <div class="ellipse-10">
+        <svg xmlns="http://www.w3.org/2000/svg" width="57" height="57" viewBox="0 0 57 57" fill="none">
+            <path
+                d="M57 28.5C57 44.2401 44.2401 57 28.5 57C12.7599 57 0 44.2401 0 28.5C0 12.7599 12.7599 0 28.5 0C44.2401 0 57 12.7599 57 28.5ZM0.811874 28.5C0.811874 43.7917 13.2083 56.1881 28.5 56.1881C43.7917 56.1881 56.1881 43.7917 56.1881 28.5C56.1881 13.2083 43.7917 0.811874 28.5 0.811874C13.2083 0.811874 0.811874 13.2083 0.811874 28.5Z"
+                fill="white" fill-opacity="0.34" />
+        </svg>
+    </div>
+    <div class="ellipse-11">
+        <svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69" fill="none">
+            <path
+                d="M69 34.5C69 53.5538 53.5538 69 34.5 69C15.4462 69 0 53.5538 0 34.5C0 15.4462 15.4462 0 34.5 0C53.5538 0 69 15.4462 69 34.5ZM0.982796 34.5C0.982796 53.011 15.989 68.0172 34.5 68.0172C53.011 68.0172 68.0172 53.011 68.0172 34.5C68.0172 15.989 53.011 0.982796 34.5 0.982796C15.989 0.982796 0.982796 15.989 0.982796 34.5Z"
+                fill="white" fill-opacity="0.34" />
+        </svg>
+    </div>
+
+    <div class="graduates-info">
+        <p class="p-1">Meet Our Graduates</p>
+        <p class="p-2">Meet our recently graduated students.</p>
+        <button class="more-graduates">More Graduates</button>
+    </div>
+
+    <button class="see-more">See more</button>
+
+
+</section>
+
+<section id="course-selection-section">
+    <p id="course-selection-message">Not sure which course is right for you?</p>
+    <p id="course-selection-message-2">We offer a wide range of courses to help you meet your goals.
+        Let us help you find your perfect English<br> language course.
+    </p>
+    <button id="contact-us-button-2">Contact Us</button>
+
+</section>
+
+
+<section id="students-opinion-section">
+    <div class="line-1 line">
+        <svg xmlns="http://www.w3.org/2000/svg" width="353" height="146" viewBox="0 0 353 146" fill="none">
+            <path
+                d="M499.164 55.5949L442.439 99.2889C421.982 115.046 398.831 126.952 374.115 134.427L373.42 134.637C355.88 139.941 337.729 142.96 319.417 143.618L309.885 143.961C297.65 144.4 285.399 143.784 273.27 142.12L249.132 138.807C226.605 135.715 204.927 128.136 185.38 116.519L180.372 113.542C167.653 105.983 156.265 96.3831 146.664 85.1265V85.1265L144.768 81.659C139.544 72.107 141.09 60.2744 148.591 52.3845L148.951 52.0058C157.943 42.5494 172.769 41.8014 182.666 50.3049V50.3049C192.632 58.8666 194.068 73.7657 185.922 84.0733L185.063 85.1593C179.437 92.2781 170.5 95.9394 161.497 94.8139L140.603 92.2022C137.539 91.8192 134.506 91.2124 131.531 90.3868L123.417 88.1357C107.549 83.7331 92.3676 77.1526 78.3063 68.5818L75.8294 67.072C63.3147 59.4439 51.6809 50.457 41.1394 40.2747L0.999994 1.50294"
+                stroke="white" stroke-opacity="0.58" stroke-width="2" stroke-dasharray="8 8" />
+        </svg>
+
+    </div>
+    <div class="paper-plane-1 plane">
+        <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65" fill="none">
+            <g clip-path="url(#clip0_3349_4736)">
+                <path
+                    d="M5.36918 33.8686C5.39214 34.279 5.53321 34.674 5.77543 35.006C6.01764 35.338 6.35066 35.593 6.7344 35.7402L42.1888 49.4019L42.1941 49.4066C42.6045 49.5622 43.053 49.5874 43.4783 49.4786C43.9036 49.3698 44.285 49.1324 44.5703 48.7988C44.8556 48.4652 45.031 48.0516 45.0724 47.6146C45.1139 47.1775 45.0194 46.7384 44.802 46.357L44.7825 46.3241L39.1627 34.3117C39.0335 34.0993 38.8509 33.9245 38.633 33.8047C38.4152 33.685 38.1697 33.6245 37.9211 33.6292L11.1711 34.177C11.0887 34.1816 11.0063 34.1699 10.9284 34.1427C10.8506 34.1154 10.7788 34.0731 10.7174 34.0181C10.6559 33.9631 10.6058 33.8965 10.57 33.8222C10.5343 33.7479 10.5135 33.6672 10.5089 33.5849C10.5043 33.5025 10.516 33.42 10.5432 33.3422C10.5705 33.2643 10.6129 33.1926 10.6678 33.1311C10.7228 33.0697 10.7894 33.0196 10.8637 32.9838C10.938 32.9481 11.0187 32.9273 11.1011 32.9227L37.7406 30.4969C37.9882 30.474 38.2254 30.3865 38.4285 30.2432C38.6317 30.1 38.7938 29.9059 38.8985 29.6805L43.1498 17.1107C43.1577 17.0939 43.1643 17.0784 43.171 17.0617C43.508 16.2584 43.3589 15.3457 42.7367 14.7368L42.6705 14.6776C42.3449 14.3831 41.9382 14.1933 41.5033 14.133C41.0685 14.0727 40.6255 14.1446 40.232 14.3394L6.52639 31.8563C6.1597 32.0441 5.85526 32.3341 5.6499 32.6912C5.44453 33.0483 5.34703 33.4573 5.36918 33.8686Z"
+                    fill="white" fill-opacity="0.54" />
+            </g>
+            <defs>
+                <clipPath id="clip0_3349_4736">
+                    <rect width="45.4817" height="45.4817" fill="white"
+                        transform="translate(34.377 64.4629) rotate(-138.195)" />
+                </clipPath>
+            </defs>
+        </svg>
+    </div>
+    <div class="paper-plane-2 plane">
+        <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65" fill="none">
+            <g clip-path="url(#clip0_3349_4736)">
+                <path
+                    d="M5.36918 33.8686C5.39214 34.279 5.53321 34.674 5.77543 35.006C6.01764 35.338 6.35066 35.593 6.7344 35.7402L42.1888 49.4019L42.1941 49.4066C42.6045 49.5622 43.053 49.5874 43.4783 49.4786C43.9036 49.3698 44.285 49.1324 44.5703 48.7988C44.8556 48.4652 45.031 48.0516 45.0724 47.6146C45.1139 47.1775 45.0194 46.7384 44.802 46.357L44.7825 46.3241L39.1627 34.3117C39.0335 34.0993 38.8509 33.9245 38.633 33.8047C38.4152 33.685 38.1697 33.6245 37.9211 33.6292L11.1711 34.177C11.0887 34.1816 11.0063 34.1699 10.9284 34.1427C10.8506 34.1154 10.7788 34.0731 10.7174 34.0181C10.6559 33.9631 10.6058 33.8965 10.57 33.8222C10.5343 33.7479 10.5135 33.6672 10.5089 33.5849C10.5043 33.5025 10.516 33.42 10.5432 33.3422C10.5705 33.2643 10.6129 33.1926 10.6678 33.1311C10.7228 33.0697 10.7894 33.0196 10.8637 32.9838C10.938 32.9481 11.0187 32.9273 11.1011 32.9227L37.7406 30.4969C37.9882 30.474 38.2254 30.3865 38.4285 30.2432C38.6317 30.1 38.7938 29.9059 38.8985 29.6805L43.1498 17.1107C43.1577 17.0939 43.1643 17.0784 43.171 17.0617C43.508 16.2584 43.3589 15.3457 42.7367 14.7368L42.6705 14.6776C42.3449 14.3831 41.9382 14.1933 41.5033 14.133C41.0685 14.0727 40.6255 14.1446 40.232 14.3394L6.52639 31.8563C6.1597 32.0441 5.85526 32.3341 5.6499 32.6912C5.44453 33.0483 5.34703 33.4573 5.36918 33.8686Z"
+                    fill="white" fill-opacity="0.54" />
+            </g>
+            <defs>
+                <clipPath id="clip0_3349_4736">
+                    <rect width="45.4817" height="45.4817" fill="white"
+                        transform="translate(34.377 64.4629) rotate(-138.195)" />
+                </clipPath>
+            </defs>
+        </svg>
+    </div>
+    <div class="line-2 line">
+        <svg xmlns="http://www.w3.org/2000/svg" width="353" height="146" viewBox="0 0 353 146" fill="none">
+            <path
+                d="M499.164 55.5949L442.439 99.2889C421.982 115.046 398.831 126.952 374.115 134.427L373.42 134.637C355.88 139.941 337.729 142.96 319.417 143.618L309.885 143.961C297.65 144.4 285.399 143.784 273.27 142.12L249.132 138.807C226.605 135.715 204.927 128.136 185.38 116.519L180.372 113.542C167.653 105.983 156.265 96.3831 146.664 85.1265V85.1265L144.768 81.659C139.544 72.107 141.09 60.2744 148.591 52.3845L148.951 52.0058C157.943 42.5494 172.769 41.8014 182.666 50.3049V50.3049C192.632 58.8666 194.068 73.7657 185.922 84.0733L185.063 85.1593C179.437 92.2781 170.5 95.9394 161.497 94.8139L140.603 92.2022C137.539 91.8192 134.506 91.2124 131.531 90.3868L123.417 88.1357C107.549 83.7331 92.3676 77.1526 78.3063 68.5818L75.8294 67.072C63.3147 59.4439 51.6809 50.457 41.1394 40.2747L0.999994 1.50294"
+                stroke="white" stroke-opacity="0.58" stroke-width="2" stroke-dasharray="8 8" />
+        </svg>
+    </div>
+    <div class="line-3 line">
+        <svg xmlns="http://www.w3.org/2000/svg" width="459" height="228" viewBox="0 0 459 228" fill="none">
+            <path
+                d="M1.8938 227.286L28.3868 160.765C37.9408 136.776 51.7771 114.724 69.2207 95.6848L69.7112 95.1495C82.09 81.6385 96.1605 69.7815 111.574 59.872L119.597 54.7145C129.895 48.0934 140.746 42.3727 152.027 37.6158L174.477 28.1498C195.429 19.3153 217.94 14.7729 240.678 14.7912L246.504 14.7959C261.3 14.8078 275.992 17.2541 289.993 22.0366V22.0366L293.393 24.0513C302.759 29.6012 307.467 40.5663 305.041 51.1796L304.924 51.6889C302.016 64.4095 289.646 72.6173 276.795 70.3537V70.3537C263.856 68.0747 255.02 55.9936 256.767 42.9721L256.951 41.6002C258.157 32.6072 263.976 24.8985 272.293 21.2727L291.595 12.8586C294.426 11.6246 297.344 10.5994 300.324 9.79118L308.451 7.58751C324.344 3.27779 340.759 1.19168 357.225 1.38869L360.126 1.4234C374.781 1.59874 389.372 3.39215 403.633 6.771L457.937 19.6368"
+                stroke="white" stroke-opacity="0.58" stroke-width="2" stroke-dasharray="8 8" />
+        </svg>
+    </div>
+
+    <p id="what-our-student-say">What Our Students Say<br> About Us</p>
+    <div id="review-slider-1" class="owl-carousel owl-theme">
+        @foreach (var student in Model.Students)
+        {
+            <div class="review-item student-opinion">
+
+                <div class="student-profile">
+                    <div class="profile-picture"><img src="~/@student.ImageNameInSystem"></div>
+                    <div class="student-info">
+                        <div>
+                            <p class="student-name">@student.FullName</p>
+                            <p class="student-occupation">@student.Position</p>
+                        </div>
+                        <div class>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path
+                                    d="M13.5 18H5C4.73478 18 4.48043 17.8946 4.29289 17.7071C4.10536 17.5196 4 17.2652 4 17V9C4 8.73478 4.10536 8.48043 4.29289 8.29289C4.48043 8.10536 4.73478 8 5 8H12.5C12.7652 8 13.0196 8.10536 13.2071 8.29289C13.3946 8.48043 13.5 8.73478 13.5 9V20C13.5 21.3261 12.9732 22.5979 12.0355 23.5355C11.0979 24.4732 9.82608 25 8.5 25"
+                                    stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M28 18H19.5C19.2348 18 18.9804 17.8946 18.7929 17.7071C18.6054 17.5196 18.5 17.2652 18.5 17V9C18.5 8.73478 18.6054 8.48043 18.7929 8.29289C18.9804 8.10536 19.2348 8 19.5 8H27C27.2652 8 27.5196 8.10536 27.7071 8.29289C27.8946 8.48043 28 8.73478 28 9V20C28 21.3261 27.4732 22.5979 26.5355 23.5355C25.5979 24.4732 24.3261 25 23 25"
+                                    stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="student-opinions">
+                    @student.Description
+                </div>
+            </div>
+        }
+    </div>
+    <div id="review-slider-2" class="owl-carousel owl-theme">
+        @foreach (var student in Model.Students)
+        {
+            <div class="review-item student-opinion">
+
+                <div class="student-profile">
+                    <div class="profile-picture"><img src="~/@student.ImageNameInSystem"></div>
+                    <div class="student-info">
+                        <div>
+                            <p class="student-name">@student.FullName</p>
+                            <p class="student-occupation">@student.Position</p>
+                        </div>
+                        <div class>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path
+                                    d="M13.5 18H5C4.73478 18 4.48043 17.8946 4.29289 17.7071C4.10536 17.5196 4 17.2652 4 17V9C4 8.73478 4.10536 8.48043 4.29289 8.29289C4.48043 8.10536 4.73478 8 5 8H12.5C12.7652 8 13.0196 8.10536 13.2071 8.29289C13.3946 8.48043 13.5 8.73478 13.5 9V20C13.5 21.3261 12.9732 22.5979 12.0355 23.5355C11.0979 24.4732 9.82608 25 8.5 25"
+                                    stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M28 18H19.5C19.2348 18 18.9804 17.8946 18.7929 17.7071C18.6054 17.5196 18.5 17.2652 18.5 17V9C18.5 8.73478 18.6054 8.48043 18.7929 8.29289C18.9804 8.10536 19.2348 8 19.5 8H27C27.2652 8 27.5196 8.10536 27.7071 8.29289C27.8946 8.48043 28 8.73478 28 9V20C28 21.3261 27.4732 22.5979 26.5355 23.5355C25.5979 24.4732 24.3261 25 23 25"
+                                    stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="student-opinions">
+                    @student.Description
+                </div>
+            </div>
+        }
+    </div>
+
+    <div id="mini-review-slider" class="owl-carousel owl-theme">
+        <div class="review-item">
+            <div class="review-head">
+                <div class="user-info">
+                    <div class="profile-photo">
+                        <img src="~/Client/src/assets/images/ac92cae7d6421ecdb4d53f048fd5061e.jpg" alt="">
+                    </div>
+                    <div class="profile-name">
+                        <h6 class="name">Samir Aliyev</h6>
+                        <h6 class="job">Lorem, ipsum dolor.</h6>
+                    </div>
+                </div>
+                <div class="quotes">
+                    <img src="~/Client/src/assets/images/Quote.png" alt="">
+                </div>
+            </div>
+            <div class="review-body">
+                I have always relied on EdTech to help me understand my studies. I can always count on him to get me
+                through difficult subjects. with edtech my learning is easier without any obstacles.
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="join-us-section">
+    <div class="join-us-content">
+        <p class="career-opp">Career Opportunities</p>
+        <p class="join-us-content-1">Come and join us</p>
+        <p class="join-us-content-2">Become an instructor and change lives - including your own.</p>
+        <button class="join-us-button">Join Us</button>
+    </div>
+    <div><img class="join-us-picture" src="~/client/src/assets/images/join-us.png"></div>
+
+</section>

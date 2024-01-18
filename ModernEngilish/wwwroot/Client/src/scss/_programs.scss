@@ -1,0 +1,246 @@
+
+
+  #programs-main {
+    
+    
+    padding-left: 126px;
+    padding-right: 126px;
+    padding-top: 100px;
+    padding-bottom: 180px;
+    
+    @media (min-width: 390px) and (max-width: 822px) {
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-top: 64px;
+      padding-bottom: 56px;
+      
+    }
+
+
+   
+    
+   
+
+  
+   .title-container {
+    width: 1188px;
+    height: 144px;
+    margin-bottom: 40px;
+    @media (min-width: 390px) and (max-width: 822px) {
+      width: 358px;
+      height: 54px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+  
+  
+   
+    
+  
+
+    h1 {
+      color: #D70101;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%; 
+      flex-shrink: 0;
+      @media (min-width: 390px) and (max-width: 822px) {
+        font-size: 32px;
+        margin-right: 63px;
+      }
+
+    }
+    .content{
+      height: 40px;
+      @media (min-width: 390px) and (max-width: 822px) {
+        display: none;
+      }
+    }
+   
+  
+   
+
+
+     .category-container {
+      display: flex;
+      flex-direction: row;
+      gap: 14px;
+      border-bottom: 2px solid #E0E0E0;
+      @media (min-width: 390px) and (max-width: 822px) {
+        display: none;
+      }
+     
+      .category-1 {
+        color: #1C1C1C;
+        padding:  0px 24px 16px 24px;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+        border-bottom: 4px solid #D70101;
+       
+      }
+      .category-2 {
+        color: #A8A8A8;
+        padding: 0px 24px 16px 24px;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+      }
+
+
+
+     }
+    
+   }
+   #course-section {
+    @media (min-width: 390px) and (max-width: 822px) {
+      display: none;
+     
+}
+
+    .courses {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      margin-bottom: 40px;
+    
+     
+ 
+    
+      .course-picture {
+       width: 376px;
+       height: 212px;
+ 
+ 
+      }
+      .course-info {
+        width:788px;
+        height: 212px;
+        display: flex;
+        gap: 8px;
+        flex-direction: column;
+ 
+       .course-name {
+         font-size: 24px;
+         font-style: normal;
+         font-weight: 600;
+         line-height: 130%;
+       }
+       .course-information {
+         font-size: 15px;
+         font-style: normal;
+         font-weight: 400;
+         line-height: 150%;
+         color: #7C7C7C;
+         margin-bottom: 24px;
+ 
+       }
+       .buttons {
+         display: flex;
+         flex-direction: row;
+         gap: 24px;
+         .contact-us-button {
+           height: 52px;
+           padding: 10px 24px;
+           border-radius: 32px;
+           background: #D70101;
+           border-style: none;
+           color:#FFF;
+           border-radius: 32px;
+         }
+         .wp-button {
+           width: 52px;
+           height: 52px;
+         }
+       }
+ 
+ 
+ 
+ 
+ 
+      }
+     }
+   }
+   #card-2 {
+    display: none;  
+   
+    @media (min-width: 390px) and (max-width: 822px) {
+      display: block;
+      margin: 0 auto;
+      width: 310px;
+      height: 314px;
+      border-radius: 16px;
+      border-right: 1px solid  #E0E0E0;
+      border-bottom: 1px solid #E0E0E0;
+      border-left: 1px solid  #E0E0E0;
+      border-top-style: none;
+     
+      border: 1px solid #e0dfdf;
+      box-shadow: 0 8px 16px #f0eded;
+     }
+
+    .image-2 {
+       
+        border-radius: 16px 16px 0 0;
+        width: 310px;
+        height: 175px;
+        object-fit: cover;
+
+    }
+
+
+        .information-card{
+               width: 310px;
+               padding: 13.867px 16.504px;
+               box-sizing: border-box;
+               height: 139px;
+            
+          
+        }
+                
+        .course-name {
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 130%;
+             text-align: center;
+            margin-bottom: 10.13px;
+
+        }
+        
+
+
+        .course-information {
+
+                text-align: center;
+                color: var(--Neutral-70, #7C7C7C);
+                font-size: 12.378px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%; 
+
+    
+        }
+     
+
+    
+  }
+  .responsive-card {
+    display: none;
+
+    @media (min-width: 390px) and (max-width: 822px) {
+      display: block;
+     
+    }
+
+  }
+
+ 
+
+}
+   
+    
+    

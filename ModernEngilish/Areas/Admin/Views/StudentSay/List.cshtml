@@ -1,0 +1,60 @@
+@using ModernEngilish.Areas.Admin.ViewModels.Students
+@model List<ListViewModel>
+
+<div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <div class="float-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                        </li><!--end nav-item-->
+                        <li class="breadcrumb-item active">Students</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Students</h4>
+            </div><!--end page-title-box-->
+        </div><!--end col-->
+    </div>
+</div>
+
+<div class="col-lg-12">
+    <div class="row justify-content-end">
+        <div class="">
+            <a asp-route="admin-student-add" class="btn btn-secondary">Add new Students desciption</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var blogFile in Model)
+                        {
+                            <tr>
+                                <td><img src="~/@blogFile.ImageNameInSystem" width="10%" /></td>
+                                <td>@blogFile.FullName</td>
+                                <td class="text-end">
+                                    <form method="POST" asp-route="admin-student-delete" asp-route-id = "@blogFile.Id" id="book-image-form-@blogFile.Id"></form>
+                                    <button type="submit" form="book-image-form-@blogFile.Id">
+                                        <i class="las la-trash-alt text-secondary font-16"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table><!--end /table-->
+            </div><!--end /tableresponsive-->
+        </div><!--end card-body-->
+    </div><!--end card-->
+</div>

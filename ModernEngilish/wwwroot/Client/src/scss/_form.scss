@@ -1,0 +1,271 @@
+.background-image {
+  background-color: #D3DDE6;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 56px;
+  height: 390px;
+  @media (min-width: 390px) and (max-width: 822px){
+    height: 211px;
+    margin-bottom: 27px;
+  }
+ 
+
+
+  .image-container {
+    @media (min-width: 390px) and (max-width: 822px){
+      display: none;
+    }
+  
+     img {
+         
+      width: 100%;
+      height: 100%;
+      position: relative;
+      left: 90px;
+    }
+
+  }
+  
+  .image-container-2 {
+    @media (min-width: 390px) and (max-width: 822px){
+      height: 211px;
+      width: 390px;
+    }
+    img {
+      object-fit: cover;  
+      width: 100%;
+      height: 100%;
+    
+      
+      
+     
+     
+ 
+      
+    }
+
+  }
+  .image-container-3{
+    background-color: #c9d1dc;
+    @media (min-width: 390px) and (max-width: 822px){
+      display: none;
+    }
+  
+     img {
+         
+      width: 100%;
+      height: 100%;
+      position: relative;
+      right: 100px;
+    }
+  }
+}
+
+
+.Career {
+  text-align: center;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  color: #D70101;
+  margin-bottom: 32px;
+  @media (min-width: 390px) and (max-width: 822px){
+    font-size: 24px;
+   
+  }
+
+
+}
+
+
+
+.form-container {
+  height: 784px;
+  width: 621px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-left: 339px;
+  margin-right: 328px;
+  margin-bottom: 134px;
+  @media (min-width: 390px) and (max-width: 822px){
+    width: 358px;
+    margin: 5px 16px 56px 16px;
+
+  }
+  .form-coupler {
+    display: flex; 
+    flex-direction: row; 
+    gap: 24px;
+    @media (min-width: 390px) and (max-width: 822px){
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+
+    }
+    
+  }
+
+  
+  .form-components {
+    color: #707070;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; 
+    display: block;
+    margin-bottom: 12px;
+    @media (min-width: 390px) and (max-width: 822px){
+      font-size: 14px;
+     
+  
+    }
+      
+
+
+    
+  }
+  .inputs {
+    width: 380px;
+    height: 72px;
+    border-radius: 4px;
+    border: 1px solid #DADADA;
+
+    background: #FFF;
+    padding: 10px;
+    @media (min-width: 390px) and (max-width: 822px){
+      display: flex;
+      width: 358px;
+      height: 52px;
+      padding: 10px 24px;
+      align-items: center;
+      gap: 10px;
+     
+  
+    }
+
+  }
+  input::placeholder {
+    color: #B6B5B5;
+  }
+  textarea::placeholder {
+    color: #B6B5B5;
+  }
+  .little-red-star {
+    width: 9px;
+    height: 24px;
+    color: var(--Main-Color, #D70101);
+    text-align: center;
+    /* Body/SemiBold/L */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    margin-top: -3px;
+
+
+  }
+  textarea {
+    width: 784px;
+    height: 180px;
+    border-radius: 4px;
+    border: 1px solid #DADADA;
+
+    background: #FFF;
+    padding: 10px;
+    @media (min-width: 390px) and (max-width: 822px){
+      display: flex;
+      width: 358px;
+      height: 140px;
+      padding: 10px 24px;
+      align-items: center;
+      flex-shrink: 0;
+     
+  
+    }
+  }
+
+  .submit-button {
+    width: 226px;
+    height: 52px;
+    color: #FFF;
+
+    text-align: center;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    border-radius: 32px;
+    background: #D70101;
+    border-style: none;
+    margin-left: 273px;
+    margin-right: 328px;
+    margin-top: 64px;
+    @media (min-width: 390px) and (max-width: 822px){
+      display: none;
+  
+     
+  
+    }
+  }
+  .send-button-2 {
+    display: none;
+  
+    @media (min-width: 390px) and (max-width: 822px){
+      display: block;
+      border-radius: 32px;
+      background: #D70101;
+      display: flex;
+      width: 178px;
+      height: 52px;
+      padding: 10px 24px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      color: white;
+      margin: auto;
+      border: none;
+  
+     
+  
+    
+
+  }
+ 
+  }
+  .file-input-container {
+    position: relative;
+    width: 200px; 
+    margin: 10px;
+}
+
+.inputfile {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.fileInput {
+    display: inline-block;
+    padding: 3px 6px;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.76);
+
+    background: #EAEAEA;
+
+   
+}
+
+}
+  
+
+

@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: PlusJakartaSans;
+    text-decoration: none!important;
+}
+body{
+    width: 1440px;
+    background: #FFF;
+    margin: 0 auto!important;
+    overflow-x: hidden
+    
+}
+@media (min-width: 390px) and (max-width: 822px) {
+    body {
+      width: 390px;
+    }
+  }
+html{
+    background: black;
+    overflow-x: hidden
+}
+@import "./header";
+@import "./mini-header";
+@import "./footer";
+@import "./mini-footer";
+@import "./index";
+@import "./programs";
+@import "./about-us";
+@import "./gallery";
+@import "./form";
+@import "./contact-us";
+@import "./owl";
+@font-face {
+    font-family: 'PlusJakartaSans';
+    src: url('../assets/fonts/PlusJakartaSans-Medium.ttf') format('woff2'),
+}

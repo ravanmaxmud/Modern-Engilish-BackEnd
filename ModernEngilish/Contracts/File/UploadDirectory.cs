@@ -9,5 +9,6 @@
         Gallery = 5,
         Career = 6,
         Graduate = 7,
+        Student = 8,
     }
 }

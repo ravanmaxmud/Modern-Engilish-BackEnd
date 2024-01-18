@@ -37,7 +37,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
             {
                 ModelState.AddModelError(string.Empty, "Something went wrong");
                 _logger.LogWarning($"Program({ex.Data}) not found in db ");
-                throw ex;
+                throw;
             }
         }
     }

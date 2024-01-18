@@ -26,7 +26,7 @@ namespace ModernEngilish.Database
         public DbSet<Career> Careers { get; set; }
         public DbSet<Graduate> Graduates { get; set; }
 
-
+        public DbSet<StudentSay> StudentSays { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly<Program>();

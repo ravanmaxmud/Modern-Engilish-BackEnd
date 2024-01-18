@@ -34,10 +34,8 @@
     <Folder Include="Areas\Client\Validations\" />
     <Folder Include="Areas\Client\ViewCompanents\" />
     <Folder Include="Areas\Client\ViewModels\EngilishPrograms\" />
-    <Folder Include="Areas\Client\Views\" />
     <Folder Include="Database\Configuration\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="wwwroot\Client\" />
   </ItemGroup>
 
 </Project>

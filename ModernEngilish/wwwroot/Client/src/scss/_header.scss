@@ -1,0 +1,98 @@
+#header{
+    display: none;
+    width: 1440px;
+    height: 96px;
+    flex-shrink: 0;
+    flex-shrink: 0;
+    background: #FFF;
+    box-shadow: 13px 1px 18px 0px rgba(0, 0, 0, 0.10);
+        #logo-nav{
+            width: 1188px;
+            height: 154px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-shrink: 0;
+
+            #logo{
+                width: 234px;
+                height: 154px;
+                flex-shrink: 0;
+                position: relative;
+                z-index: 2;
+                .logo-img-1{
+                    position: absolute;
+                    left: -7%;
+                }
+                .logo-img-2{
+                    width: 83px;
+                    height: 84.005px;
+                    flex-shrink: 0;
+                    position: absolute;
+                    left: 11px;
+                    top: 16px;
+                }
+                .logo-txt{
+                    position: absolute;
+                    left: 116px;
+                    top: 13px;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    h3{
+                        color: var(--Main-Color, #D70101);
+                        font-feature-settings: 'cv11' on;
+                        font-family: PlusJakartaSans;
+                        font-size: 24px;
+                        font-weight: 700;
+                        line-height: 150%;
+                        letter-spacing: -0.24px;
+                    }
+                }
+            }
+            #nav{
+                height: 96px;
+                display: flex;
+                align-items: center;
+                nav{
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 32px;
+                    height: 44px;
+                    .nav-item{
+                        height: 44px;
+                        padding: 10px;
+                        .dropdwn{
+                            cursor: pointer;
+                            position: relative;
+                            svg{
+                                position: absolute;
+                                top: 2px;
+                            }
+                        }
+                        span{
+                            color: #000;
+                            font-family: PlusJakartaSans;
+                            font-size: 16px;
+                            font-weight: 500;
+                            line-height: 150%;
+                        }
+                        svg{
+                            width: 16px;
+                            height: 16px;
+                            margin-left: 6px;
+                        }
+                    }
+                }
+            }
+        }
+}
+@media (min-width: 822px) {
+    #header {
+        display: block;
+    }
+}
+@font-face {
+    font-family: 'PlusJakartaSans';
+    src: url('../assets/fonts/PlusJakartaSans-Medium.ttf') format('woff2'),
+}
