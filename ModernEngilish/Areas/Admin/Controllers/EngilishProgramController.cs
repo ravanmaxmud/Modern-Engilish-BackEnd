@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ModernEngilish.Areas.Admin.ViewModels.EngProgram;
 using ModernEngilish.Contracts.File;
@@ -10,6 +11,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/engilishProgram")]
+    [Authorize(Roles = "admin")]
     public class EngilishProgramController : Controller
     {
         private readonly DataContext _dataContext;
@@ -144,7 +146,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
                 _dataContext.EngilishPrograms.Remove(enPrgoram);
                 await _dataContext.SaveChangesAsync(true);
                 return RedirectToRoute("admin-enPrgoram-list");
-            } 
+            }
             catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, "Something went wrong");

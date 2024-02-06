@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ModernEngilish.Areas.Admin.ViewModels.Graduate;
 using ModernEngilish.Database;
@@ -9,6 +10,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/graduate")]
+    [Authorize(Roles = "admin")]
     public class GraduateController : Controller
     {
         private readonly DataContext _dataContext;
@@ -22,15 +24,15 @@ namespace ModernEngilish.Areas.Admin.Controllers
             _logger = logger;
         }
 
-        [HttpGet("list",Name = "admin-graduate-list")]
-        public async Task <IActionResult> List()
+        [HttpGet("list", Name = "admin-graduate-list")]
+        public async Task<IActionResult> List()
         {
             try
             {
                 var model = await _dataContext.Graduates.Select(g =>
                  new ListItemViewModel(
                         _fileService.GetFileUrl(
-                             g.FileNameInSystem, Contracts.File.UploadDirectory.Graduate),g.Id))
+                             g.FileNameInSystem, Contracts.File.UploadDirectory.Graduate), g.Id))
                                   .ToListAsync();
                 return View(model);
             }
@@ -43,7 +45,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
         }
 
         [HttpGet("add", Name = "admin-graduate-add")]
-        public async Task<IActionResult> Add() 
+        public async Task<IActionResult> Add()
         {
             return View();
         }
@@ -77,7 +79,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
         [HttpPost("delete/{id}", Name = "admin-graduate-delete")]
         public async Task<IActionResult> Delete(int? id)
         {
-            var graduate = await _dataContext.Graduates.FirstOrDefaultAsync(g => g.Id == id );
+            var graduate = await _dataContext.Graduates.FirstOrDefaultAsync(g => g.Id == id);
             if (graduate is null) return NotFound();
             _dataContext.Graduates.Remove(graduate);
             await _dataContext.SaveChangesAsync(true);

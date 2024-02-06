@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ModernEngilish.Areas.Admin.ViewModels.Languages;
 using ModernEngilish.Contracts.File;
@@ -10,6 +11,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/language")]
+    [Authorize(Roles = "admin")]
     public class LanguageController : Controller
     {
         private readonly DataContext _dataContext;

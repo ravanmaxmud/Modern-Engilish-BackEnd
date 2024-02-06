@@ -27,9 +27,19 @@ namespace ModernEngilish.Database
         public DbSet<Graduate> Graduates { get; set; }
 
         public DbSet<StudentSay> StudentSays { get; set; }
+        public DbSet<User> Users {get; set;}
+        public DbSet<Role> Roles {get; set;}
+
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly<Program>();
+
+            modelBuilder.Entity<User>().
+            HasData(
+            new User{Id = 2 ,Mail = "admin@gmail.com",Password ="admin",RoleID = 1});
+
+            modelBuilder.Entity<Role>().HasData(new Role{Id = 1 ,RoleName = "Admin"});
         }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

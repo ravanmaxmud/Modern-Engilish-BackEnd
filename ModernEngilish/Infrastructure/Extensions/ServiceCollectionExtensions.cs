@@ -22,7 +22,7 @@ namespace ModernEngilish.Infrastructure.Extensions
                 o.Cookie.Name = "Identity";
                 o.ExpireTimeSpan = TimeSpan.FromMinutes(20);
                 o.LoginPath = "/authentication/login";
-                o.AccessDeniedPath = "/admin/auth/login";
+                o.AccessDeniedPath = "/admin/about/index";
             });
 
             services.AddHttpContextAccessor();

@@ -1,4 +1,5 @@
 using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ModernEngilish.Areas.Admin.ViewModels.Students;
@@ -11,6 +12,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/student/say")]
+    [Authorize(Roles = "admin")]
     public class StudentSayController : Controller
     {
         private readonly DataContext _dataContext;

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ModernEngilish.Areas.Admin.ViewModels.Partie;
@@ -13,6 +14,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/partie")]
+    [Authorize(Roles = "admin")]
     public class PartieController : Controller
     {
         private readonly DataContext _dataContext;
@@ -26,7 +28,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
             _logger = logger;
         }
 
-        [HttpGet("list",Name ="admin-partie-list")]
+        [HttpGet("list", Name = "admin-partie-list")]
         public async Task<IActionResult> List()
         {
             try
@@ -45,8 +47,8 @@ namespace ModernEngilish.Areas.Admin.Controllers
             }
         }
 
-        [HttpGet("add",Name ="admin-partie-add")]
-        public async Task<IActionResult> Add() 
+        [HttpGet("add", Name = "admin-partie-add")]
+        public async Task<IActionResult> Add()
         {
             return View();
         }
@@ -79,9 +81,9 @@ namespace ModernEngilish.Areas.Admin.Controllers
         [HttpPost("delete/{id}", Name = "admin-partie-delete")]
         public async Task<IActionResult> Delete(int? id)
         {
-            var partie = await _dataContext.Galleries.FirstOrDefaultAsync(p=> p.Id == id);
+            var partie = await _dataContext.Galleries.FirstOrDefaultAsync(p => p.Id == id);
             if (partie is null) return NotFound("Gallery Not Found In db");
-            await _fileService.DeleteAsync(partie.FileNameInSystem,UploadDirectory.Gallery);
+            await _fileService.DeleteAsync(partie.FileNameInSystem, UploadDirectory.Gallery);
             _dataContext.Galleries.Remove(partie);
             await _dataContext.SaveChangesAsync(true);
             return RedirectToRoute("admin-partie-list");

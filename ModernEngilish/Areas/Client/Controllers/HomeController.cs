@@ -40,8 +40,8 @@ namespace ModernEngilish.Areas.Client.Controllers
                     Languages = await _dbContext.Languages.Select(l => new LanguageListItemViewModel(l.Id, l.ProgramName, l.ProgramContent,
                     _fileService.GetFileUrl(l.FileNameInSystem, Contracts.File.UploadDirectory.Language))).ToListAsync(),
 
-                    Students = await _dbContext.StudentSays.Select(s=> new StudentSayListViewModel(s.Name +""+ s.Surname,s.Position,s.Description,
-                    _fileService.GetFileUrl(s.FileNameInSystem,UploadDirectory.Student))).ToListAsync()
+                    Students = await _dbContext.StudentSays.Select(s => new StudentSayListViewModel(s.Name + "" + s.Surname, s.Position, s.Description,
+                    _fileService.GetFileUrl(s.FileNameInSystem, UploadDirectory.Student))).ToListAsync()
 
                 };
                 return View(model);

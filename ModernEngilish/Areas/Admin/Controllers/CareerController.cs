@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ModernEngilish.Areas.Admin.ViewModels.Career;
 using ModernEngilish.Database;
@@ -8,6 +9,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/career")]
+    [Authorize(Roles = "admin")]
     public class CareerController : Controller
     {
         private readonly DataContext _dataContext;
@@ -21,7 +23,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
             _logger = logger;
         }
 
-        [HttpGet("list",Name ="admin-career-list")]
+        [HttpGet("list", Name = "admin-career-list")]
         public async Task<IActionResult> List()
         {
             try
