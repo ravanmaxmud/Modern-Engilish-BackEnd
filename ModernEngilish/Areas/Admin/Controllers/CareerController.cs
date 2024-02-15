@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ModernEngilish.Areas.Admin.ViewModels.Career;
+using ModernEngilish.Contracts.Identity;
 using ModernEngilish.Database;
 using ModernEngilish.Services.Abstracts;
 
@@ -9,7 +10,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/career")]
-    [Authorize(Roles = "admin")]
+    [Authorize(Roles = RoleNames.ADMIN)]
     public class CareerController : Controller
     {
         private readonly DataContext _dataContext;

@@ -34,6 +34,9 @@ namespace ModernEngilish.Areas.Client.Controllers
                     EnglishPrograms = await _dbContext.EngilishPrograms.Select(e => new EnglishProgramListViewModel(e.Id, e.ProgramName, e.ProgramContent,
                       _fileService.GetFileUrl(e.FileNameInSystem, Contracts.File.UploadDirectory.EngProgram))).ToListAsync(),
 
+                        Courses = await _dbContext.OnlineCourses.Select(e => new OnlineCourses(e.Id, e.ProgramName, e.ProgramContent,
+                      _fileService.GetFileUrl(e.FileNameInSystem, Contracts.File.UploadDirectory.OnlineCourse))).ToListAsync(),
+
                     Ageds = await _dbContext.Ageds.Select(a => new AgedListItemViewModel(a.Id, a.ProgramName, a.ProgramContent,
                       _fileService.GetFileUrl(a.FileNameInSystem, Contracts.File.UploadDirectory.Aged))).ToListAsync(),
 

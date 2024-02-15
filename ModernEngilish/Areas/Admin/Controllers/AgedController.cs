@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ModernEngilish.Areas.Admin.ViewModels.Aged;
 using ModernEngilish.Contracts.File;
+using ModernEngilish.Contracts.Identity;
 using ModernEngilish.Database;
 using ModernEngilish.Database.Models;
 using ModernEngilish.Services.Abstracts;
@@ -11,7 +12,7 @@ namespace ModernEngilish.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/aged")]
-    [Authorize(Roles = "admin")]
+    [Authorize(Roles = RoleNames.ADMIN)]
     public class AgedController : Controller
     {
         private readonly DataContext _dataContext;

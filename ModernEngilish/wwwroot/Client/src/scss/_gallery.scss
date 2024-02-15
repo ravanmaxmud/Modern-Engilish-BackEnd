@@ -125,6 +125,11 @@
         width: 376px;
         height: 376px;
         position: relative;
+        .gallery-img{
+          overflow: hidden;
+          width: inherit;
+          height: inherit;
+        }
         img{
           border-radius: 16px;
         }

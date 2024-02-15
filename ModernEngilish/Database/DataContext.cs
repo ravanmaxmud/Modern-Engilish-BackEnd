@@ -29,6 +29,8 @@ namespace ModernEngilish.Database
         public DbSet<StudentSay> StudentSays { get; set; }
         public DbSet<User> Users {get; set;}
         public DbSet<Role> Roles {get; set;}
+        public DbSet<OnlineCourse> OnlineCourses{get; set;}
+        public DbSet<Contact> Contacts {get; set;}
 
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)

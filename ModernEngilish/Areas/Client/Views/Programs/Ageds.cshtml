@@ -1,0 +1,110 @@
+@using ModernEngilish.Areas.Client.ViewModels.Home
+@model IndexViewModel
+
+<main id="programs-main">
+    <section>
+        <div class="title-container">
+            <h1>English Programs</h1>
+            <div class="content"> </div>
+            <div class="category-container">
+                <a asp-route="programs-index" class="category-2">English Programs</a>
+                <a asp-route="programs-languages" class="category-2">Languages</a>
+                <a asp-route="programs-ageds" class="category-1">Aged 3-6</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="course-section">
+
+        @foreach (var engilish in Model.Ageds)
+        {
+            <div class="courses">
+                <div class="course-picture">
+                    <img style="width: inherit; height: inherit;object-fit: cover;" src="~/@engilish.ImageUrl">
+                </div>
+                <div class="course-info">
+
+                    <div class="course-name">@engilish.Name</div>
+                    <div class="course-information">
+                        @engilish.Description
+                    </div>
+                    <div class="buttons">
+                        <div><button class="contact-us-button">Contact Us</button></div>
+                        <div class="wp-button"><img src="src/assets/buttons/button.wp.png"></div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        }
+    </section>
+
+    <div id="mini-card-slider" class="owl-carousel owl-theme">
+        @foreach (var engilish in Model.EnglishPrograms)
+        {
+            <div id="card-2">
+                <div><img class="image-2" src="~/@engilish.ImageUrl"></div>
+                <div class="information-card">
+                    <p class="course-name">@engilish.Name</p>
+                    <p class="course-information">
+                        @engilish.Description
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="responsive-card">
+        <div class="title-container">
+            <h1>Languages</h1>
+            <div class="content"> </div>
+            <div class="category-container">
+                <a asp-route="programs-index" class="category-1">English Programs</a>
+                <a asp-route="programs-languages" class="category-2">Languages</a>
+                <a asp-route="programs-ageds" class="category-2">Aged 3-6</a>
+            </div>
+        </div>
+        <div id="mini-card-slider-2" class="owl-carousel owl-theme">
+            @foreach (var lang in Model.Languages)
+            {
+                <div id="card-2">
+                    <div><img class="image-2" src="~/@lang.ImageUrl"></div>
+                    <div class="information-card">
+                        <p class="course-name">@lang.Name</p>
+                        <p class="course-information">
+                            @lang.Description
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    </div>
+    <div>
+        <div class="responsive-card">
+            <div class="title-container">
+                <h1>Kids Program</h1>
+                <div class="content"> </div>
+                <div class="category-container">
+                    <a asp-route="programs-index" class="category-1">English Programs</a>
+                    <a asp-route="programs-languages" class="category-2">Languages</a>
+                    <a asp-route="programs-ageds" class="category-2">Aged 3-6</a>
+                </div>
+            </div>
+            <div id="mini-card-slider-3" class="owl-carousel owl-theme">
+                @foreach (var kids in Model.Ageds)
+                {
+                    <div id="card-2">
+                        <div><img class="image-2" src="~/@kids.ImageUrl"></div>
+                        <div class="information-card">
+                            <p class="course-name">@kids.Name</p>
+                            <p class="course-information">
+                                @kids.Description
+                            </p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div>
+</main>

@@ -10,5 +10,7 @@
         Career = 6,
         Graduate = 7,
         Student = 8,
+        OnlineCourse = 9,
+        Contact = 10,
     }
 }

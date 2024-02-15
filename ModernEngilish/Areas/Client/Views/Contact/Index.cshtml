@@ -1,0 +1,86 @@
+@using ModernEngilish.Areas.Admin.ViewModels.Contact
+@model SendViewModel
+
+<main>
+    <p class="title-contact-us">Contact Us</p>
+    <div class="bottom-line"></div>
+    <div class="contact-us">
+        <img class="location-icon" src="src/assets/images/ion_location.png">
+        <p class="head-office">Head Office</p>
+        <p class="paragraph">
+            Mir Jalal street 59K, 9th mcr.,Binagadi district,<br> Baku, Azerbaijan, AZ 1037
+        </p>
+        <p class="paragraph">+994 55 359 39 55</p>
+        <p class="paragraph">modernenglishec@gmail.com</p>
+    </div>
+    <iframe class="map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.557495956984!2d49.80810987552781!3d40.418652655523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403087bafd5528d3%3A0x2f44cf6efdd059ef!2sModern%20English%20Education%20Center!5e0!3m2!1str!2saz!4v1702465777202!5m2!1str!2saz"
+        width="1188" height="380" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div>
+        <p class="title-message">Send us a Message</p>
+
+        <div class="form-container">
+            <form method="POST" asp-route="contact-send" enctype="multipart/form-data">
+                <div class="form-coupler">
+                    <div>
+                        <div style="display: flex; gap: 4px;">
+                            <label class="form-components" for="fname">Full name </label>
+                            <img class="little-red-star" src="~/Client/src/assets/images/Frame 14691.png">
+                        </div>
+                        <input asp-for="FullName" class="inputs" type="text" id="fname" placeholder="i.e., John Forester">
+                    </div>
+                    <div>
+                        <div style="display: flex; gap: 4px;">
+                            <label class="form-components" type="email">Email</label>
+                            <img class="little-red-star" src="~/Client/src/assets/images/Frame 14691.png">
+                        </div>
+                        <input asp-for="Email" class="inputs" type="email" id="email" placeholder="i.e.,  example@example.com ">
+                    </div>
+
+                </div>
+                <div class="form-coupler">
+                    <div>
+                        <div style="display: flex; gap: 4px;">
+                            <label class="form-components" for="pnumber">Phone number</label>
+                            <img class="little-red-star" src="~/Client/src/assets/images/Frame 14691.png">
+                        </div>
+                        <input asp-for="PhoneNumber" class="inputs" type="number" id="pnumber" placeholder="+994 11 123 45 67">
+                    </div>
+                    <div class="position-input">
+                        <div style="display: flex; gap: 4px;">
+                            <label class="form-components" for="position">Position</label>
+                            <img class="little-red-star" src="~/Client/src/assets/images/Frame 14691.png">
+                        </div>
+                        <input asp-for="Position" class="inputs" type="text" id="position" placeholder="i.e., Teacher ">
+                    </div>
+                </div>
+                <div class="subject-input">
+                    <div style="display: flex; gap: 4px;">
+                        <label class="form-components" for="position">Subject</label>
+                        <img class="little-red-star" src="~/Client/src/assets/images/Frame 14691.png">
+                    </div>
+                    <input asp-for="Subject" class="inputs" type="text" id="position" placeholder="i.e., Teacher ">
+                </div>
+                <div>
+                    <div style="display: flex; gap: 4px;">
+                        <label class="form-components" for="message">Your message</label>
+                        <img class="little-red-star" src="~/Client/src/assets/images/Frame 14691.png">
+                    </div>
+                    <textarea asp-for="Message" id="message" placeholder="i.e., I would like to..."></textarea>
+                </div>
+                <div>
+                    <div style="display: flex; gap: 4px;">
+                        <label class="form-components" type="file">Please attach your CV</label>
+                        <img class="little-red-star" src="~/Client/src/assets/images/Frame 14691.png">
+                    </div>
+                    <input asp-for="CvFile" class="choose-file" type="file" id="file" placeholder="Choose file">
+                </div>
+
+                <button type="submit" class="send-button">Send</button>
+            </form>
+        </div>
+
+
+
+</main>

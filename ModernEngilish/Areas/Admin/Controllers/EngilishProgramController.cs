@@ -3,15 +3,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ModernEngilish.Areas.Admin.ViewModels.EngProgram;
 using ModernEngilish.Contracts.File;
+using ModernEngilish.Contracts.Identity;
 using ModernEngilish.Database;
 using ModernEngilish.Database.Models;
 using ModernEngilish.Services.Abstracts;
 
 namespace ModernEngilish.Areas.Admin.Controllers
 {
-    [Area("admin")]
-    [Route("admin/engilishProgram")]
-    [Authorize(Roles = "admin")]
+        [Area("admin")]
+        [Route("admin/engilishProgram")]
+        [Authorize(Roles = RoleNames.ADMIN)]
     public class EngilishProgramController : Controller
     {
         private readonly DataContext _dataContext;

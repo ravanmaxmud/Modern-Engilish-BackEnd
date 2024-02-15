@@ -36,20 +36,21 @@
 
 
 </section>
+
 <section>
     <div id="cards">
         <div class="title-container">
             <h1>Popular Courses</h1>
             <div class="content"> </div>
             <div class="category-container">
-                <a href="" class="category-1">English Programs</a>
-                <a href="" class="category-2">Kids Programs</a>
-                <a href="" class="category-2">Languages</a>
-                <a href="" class="category-2">Online Courses</a>
+                <div id="ctg1" class="ctg category-active">English Programs</div>
+                <div id="ctg2" class="ctg category-no-active ">Kids Programs</div>
+                <div id="ctg3" class="ctg category-no-active ">Languages</div>
+                <div id="ctg4" class="ctg category-no-active ">Online Courses</div>
             </div>
         </div>
         <!-- burada justify-content-center olacaq -->
-        <div style="display: flex; justify-content: space-between; ">
+        <div id="ctg1-body" class="ctg-body" style="display: flex; justify-content: space-between; ">
             @foreach (var enProgram in Model.EnglishPrograms)
             {
                 <div id="card">
@@ -60,6 +61,54 @@
                             @enProgram.Description
                         </p>
                     </div>
+                </div>
+            }
+        </div>
+
+        <div id="ctg2-body" class="ctg-body" style="display: none; justify-content: space-between; ">
+            @foreach (var kids in Model.Ageds)
+            {
+                <div id="card">
+                    <div><img class="image-2" src="~/@kids.ImageUrl"></div>
+                    <div class="information-card">
+                        <p class="course-name">@kids.Name</p>
+                        <p class="course-information">
+                            @kids.Description
+                        </p>
+                    </div>
+
+                </div>
+            }
+        </div>
+
+        <div id="ctg3-body" class="ctg-body" style="display: none; justify-content: space-between; ">
+            @foreach (var language in Model.Languages)
+            {
+                <div id="card">
+                    <div><img class="image-2" src="~/@language.ImageUrl"></div>
+                    <div class="information-card">
+                        <p class="course-name">@language.Name</p>
+                        <p class="course-information">
+                            @language.Description
+                        </p>
+                    </div>
+
+                </div>
+            }
+        </div>
+
+        <div id="ctg4-body" class="ctg-body" style="display: none; justify-content: space-between; ">
+            @foreach (var online in Model.Courses)
+            {
+                <div id="card">
+                    <div><img class="image-2" src="~/@online.ImageUrl"></div>
+                    <div class="information-card">
+                        <p class="course-name">@online.Name</p>
+                        <p class="course-information">
+                            @online.Description
+                        </p>
+                    </div>
+
                 </div>
             }
         </div>

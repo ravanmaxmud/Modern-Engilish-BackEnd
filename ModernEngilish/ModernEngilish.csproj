@@ -37,5 +37,5 @@
     <Folder Include="Database\Configuration\" />
     <Folder Include="Exceptions\" />
   </ItemGroup>
-
+	
 </Project>

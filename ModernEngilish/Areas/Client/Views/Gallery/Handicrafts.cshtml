@@ -1,0 +1,69 @@
+@using ModernEngilish.Areas.Client.ViewModels.Gallery
+@model List<ListViewModel>
+<main id="gallery-main">
+    <section>
+        <div class="title-container">
+            <h1>Gallery<span>/Handicrafts</span></h1>
+            <div class="content"> </div>
+            <div class="category-container">
+               <a asp-route="gallery-index" class="category-2">Parties</a>
+                <a asp-route="gallery-graduates" class="category-2">Graduates</a>
+                <a asp-route="gallery-handicrafts" class="category-1">Handicrafts</a>
+                <a asp-route="gallery-kids" class="category-2">Kids</a>
+            </div>
+        </div>
+    </section>
+    <div class=image-container>
+        <div class="image-row">
+            @foreach (var gallery in Model)
+            {
+                <div class="image-with-overlay">
+
+                    <img class="img_fixer" gallery-img src="~/@gallery.FileNameInSystem" alt="sad">
+                    <img class="overlay" src="src/assets/images/Rectangle 488.png" alt="sda">
+                </div>
+            }
+        </div>
+
+        @* <div class="image-row">
+        <div class="image-with-overlay">
+
+        <img src="src/assets/images/image 119.png">
+        <img class="overlay" src="src/assets/images/Rectangle 488.png">
+        </div>
+        <div class="image-with-overlay">
+
+        <img src="src/assets/images/image 119.png">
+        <img class="overlay" src="src/assets/images/Rectangle 488.png">
+        </div>
+        <div class="image-with-overlay">
+
+        <img src="src/assets/images/image 119.png">
+        <img class="overlay" src="src/assets/images/Rectangle 488.png">
+        </div>
+
+
+        </div> *@
+
+
+
+
+    </div>
+    <div id="mini-gallery-slider" class="owl-carousel owl-theme">
+
+        <div class=gallery-item-1>
+            <img src="src/assets/images/girls-with-baloon.jpg">
+        </div>
+        <div class=gallery-item-2>
+            <img src="src/assets/images/birthday.jpg">
+        </div>
+        <div class=gallery-item-3>
+            <img src="src/assets/images/show.jpg">
+        </div>
+
+
+    </div>
+
+
+
+</main>

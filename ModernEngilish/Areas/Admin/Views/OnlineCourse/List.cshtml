@@ -1,0 +1,88 @@
+﻿@using ModernEngilish.Areas.Admin.ViewModels.EngProgram;
+@model List<ListViewModel>
+@{
+    var errorMessage = TempData["ErrorMessage"] as string;
+}
+
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <div class="float-start">
+                </div>
+                <h4 class="page-title">English Program</h4>
+            </div>
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <p class="text-danger">@errorMessage</p>
+            }
+            <!--end page-title-box-->
+        </div>
+        <a asp-route="admin-online-add" class="mt-2 mb-2 btn btn-success">Add New English Program</a>
+        <!--end col-->
+    </div>
+    <!-- end page title end breadcrumb -->
+    <div class="row" style="flex-wrap:wrap;">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="blog-card">
+                            <img style="width:500px; height:200px; object-fit:cover;" src="~/@item.ImageUrl" alt="" class="img-fluid rounded" />
+                            <span class="badge badge-purple px-3 py-2 bg-soft-primary fw-semibold mt-3">Photography</span>
+                            <h4 class="my-3">
+                                <a href="" class="">@item.Name</a>
+                            </h4>
+                            <p class="text-muted" style="height:250px; max-height:max-content;">@item.Description</p>
+                            <hr class="hr-dashed">
+                            <div class="d-flex justify-content-between">
+                                <div class="meta-box">
+                                    <div class="media">
+                                    </div>
+                                </div><!--end meta-box-->
+                                <div class="d-flex justify-content-between aligin-items-center">
+                                    <a class="btn btn-success" asp-route="admin-online-update" asp-route-Id="@item.Id"><i class="las la-pen text-dark font-16"></i></a>
+                                    <form method="POST" asp-route="admin-online-delete" asp-route-id="@item.Id" id="book-form-@item.Id"></form>
+                                    <button class="btn btn-danger" type="submit" form="book-form-@item.Id">
+                                        <i class="las la-trash-alt text-dark font-16"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div><!--end blog-card-->
+
+                    </div><!--end card-body-->
+                </div><!--end card-->
+            </div> <!--end col-->
+        }
+    </div><!--end row-->
+
+</div>
+
+<div class="card-body">
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+            @*            <li class="page-item active" aria-current="page">
+            <span class="page-link">
+            1
+            <span class="sr-only">(current)</span>
+            </span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>*@
+            @for (int i = 1; i <= ViewBag.TotalPage; i++)
+            {
+
+                <li class=@(ViewBag.CurrentPage == i ?"active":"") aria-current=@(ViewBag.CurrentPage)>
+                    <a asp-route-page="@i" class="page-link">
+                        @i
+                    </a>
+                </li>
+            }
+        </ul><!--end pagination-->
+    </nav><!--end nav-->
+</div>

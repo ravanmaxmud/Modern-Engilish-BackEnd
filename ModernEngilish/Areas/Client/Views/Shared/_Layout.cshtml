@@ -67,7 +67,7 @@
     <header id="header">
         <div id="logo-nav">
             <div id="logo">
-                <a href="./index.html">
+                <a asp-route="home-index">
                     <svg class="logo-img-1" xmlns="http://www.w3.org/2000/svg" width="140" height="175"
                         viewBox="0 0 140 175" fill="none">
                         <g filter="url(#filter0_d_3349_4573)">
@@ -117,18 +117,18 @@
                             </svg>
                         </span>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" asp-route="programs-index">English Programs</a></li>
+                            <li><a class="dropdown-item" asp-route="programs-languages">Languages</a></li>
+                            <li><a class="dropdown-item" asp-route="programs-ageds">Aged</a></li>
                         </ul>
                     </div>
                     <div class="nav-item">
-                        <a href="">
+                        <a asp-route="about-index">
                             <span>About Us</span>
                         </a>
                     </div>
                     <div class="nav-item">
-                        <a href="">
+                        <a asp-route="contact-index">
                             <span>Contact Us</span>
                         </a>
                     </div>
@@ -300,6 +300,7 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="~/Client/src/js/index.js"></script>
     <script src="~/Client/src/js/owl.carousel.js"></script>
     <script src="~/Client/src/js/owl.js"></script>
     <script src="~/Client/src/js/popper.js"></script>
